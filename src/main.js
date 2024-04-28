@@ -26,10 +26,8 @@ function translate(query, completion) {
 
 	if (timestamps.length != 0) {
 		for (let i = 0; i < timestamps.length; i++) {
-			if (timestamps[i] > 32503680000) {
-				continue
-			}
-			targetTxtArr.push(`${timestamps[i]} => ${formatDate(timestamps[i]* 1000,$option.date_format)}`)
+            timestamps[i] = timestamps[i].length == 10 ? timestamps[i] * 1000 : timestamps[i] * 1
+			targetTxtArr.push(`${timestamps[i]} => ${formatDate(timestamps[i],$option.date_format)}`)
 		}
 	}
 
